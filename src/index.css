@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #ECC5C6; /* rosa pastel */
-    --dark-color: #837D68;   /* oliva acinzentado */
-    --light-bg: #F5E9E7;     /* bege rosado claro */
-    --white: #C1C0C2;        /* cinza claro */
-    --accent: #8A9DB1;       /* azul pastel */
+    --primary-color: #D9B7BE; /* rose taupe */
+    --dark-color: #6F625C;   /* taupe escuro */
+    --light-bg: #F7F2F1;     /* marfim rosado */
+    --white: #EFE6E2;        /* bege claro */
+    --accent: #BFA6A0;       /* nude acinzentado */
 }
 
 * {
@@ -37,6 +37,8 @@ nav a {
     text-decoration: none;
     color: var(--dark-color);
     font-weight: 600;
+    display: inline-flex;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 section {
@@ -109,7 +111,7 @@ h2 {
     display: flex;            
     flex-wrap: wrap;          
     justify-content: center;  
-    gap: 25px;                
+    gap: 40px;                
     margin-top: 30px;
 }
 
@@ -132,6 +134,70 @@ form {
     flex-direction: column;   
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     border: 1px solid #e2e8f0;
+}
+
+.contato-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 10px;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contato-social {
+    background-color: var(--white);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+    border: 1px solid #e2e8f0;
+}
+
+.contato-social h3 {
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+}
+
+.contato-social ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contato-social li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contato-social li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background-color: var(--accent);
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.contato-social a {
+    color: var(--dark-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contato-social a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.contato-container form {
+    max-width: none;
+    margin: 0;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.06);
 }
 
 #contato h2 {
@@ -176,11 +242,13 @@ form button {
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 form button:hover {
     background-color: var(--accent);
     box-shadow: 0 4px 12px rgba(138, 157, 177, 0.2);
+    transform: scale(1.04);
 }
 
 footer {
@@ -205,6 +273,10 @@ footer {
     .card-projeto {
         flex-basis: 100%; 
     }
+
+    .contato-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 #btn-tema {
@@ -215,17 +287,39 @@ footer {
     border: none;
     border-radius: 5px;
     font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#btn-tema:hover,
+nav a:hover,
+.contato-social a:hover,
+.card-projeto a:hover {
+    transform: scale(1.04);
 }
 
 body.dark-theme {
-    --light-bg: #8A9DB1;   /* azul pastel */
-    --dark-color: #F5E9E7; /* bege rosado claro */
-    --white: #C1C0C2;      /* cinza claro */
-    --primary-color: #837D68; /* oliva acinzentado */
-    --accent: #ECC5C6;     /* rosa pastel */
+    --light-bg: #0E1A2B;   /* azul noite */
+    --dark-color: #EAF1F7; /* azul gelo */
+    --white: #15223A;      /* azul carvão */
+    --primary-color: #4B7DB4; /* azul médio */
+    --accent: #8BB3DD;     /* azul claro */
 }
 
 body.dark-theme footer {
     background-color: var(--primary-color);
     color: var(--light-bg);
+}
+
+body.dark-theme .card-projeto {
+    background-color: #EFE6E2;
+    color: #3A3331;
+}
+
+body.dark-theme .contato-social {
+    background-color: #EFE6E2;
+    color: #3A3331;
+}
+
+body.dark-theme .contato-social a {
+    color: #3A3331;
 }

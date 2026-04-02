@@ -66,37 +66,49 @@ function App() {
         
         <section id="contato">
           <h2>Contato</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="campo">
-              <label htmlFor="nome">Nome:</label>
-              <input 
-                id="nome" 
-                type="text" 
-                required
-                value={formData.nome}
-                onChange={(e) => setFormData({...formData, nome: e.target.value})}
-              />
-            </div>
-            <div className="campo">
-              <label htmlFor="email">E-mail:</label>
-              <input 
-                id="email" 
-                type="email" 
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-              />
-            </div>
-            <div className="campo">
-              <label htmlFor="msg">Mensagem:</label>
-              <textarea 
-                id="msg" 
-                value={formData.msg}
-                onChange={(e) => setFormData({...formData, msg: e.target.value})}
-              />
-            </div>
-            <button type="submit">Enviar Mensagem</button>
-          </form>
+          <div className="contato-container">
+            <form onSubmit={handleSubmit}>
+              <div className="campo">
+                <label htmlFor="nome">Nome:</label>
+                <input 
+                  id="nome" 
+                  type="text" 
+                  required
+                  value={formData.nome}
+                  onChange={(e) => setFormData({...formData, nome: e.target.value})}
+                />
+              </div>
+              <div className="campo">
+                <label htmlFor="email">E-mail:</label>
+                <input 
+                  id="email" 
+                  type="email" 
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                />
+              </div>
+              <div className="campo">
+                <label htmlFor="msg">Mensagem:</label>
+                <textarea 
+                  id="msg" 
+                  value={formData.msg}
+                  onChange={(e) => setFormData({...formData, msg: e.target.value})}
+                />
+              </div>
+              <button type="submit">Enviar Mensagem</button>
+            </form>
+
+            <aside className="contato-social">
+              <h3>Redes Sociais</h3>
+              <ul>
+                <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="mailto:contato@email.com">contato@email.com</a></li>
+              </ul>
+            </aside>
+          </div>
         </section>
 
       </main>
