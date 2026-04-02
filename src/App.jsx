@@ -17,7 +17,10 @@ const meusProjetos = [
     id: 2, 
     titulo: "Projeto 02 - Portfólio com React", 
     descricao: "Meu portfólio de apresentação feito com React, uma biblioteca JavaScript para construção de interfaces de usuário.", 
-    link: "https://mariagomessilvatsi-afk.github.io/portfolio-uespi-html-css-js/" 
+    links: [
+        { label: "Ver no GitHub Pages", url: "https://mariagomessilvatsi-afk.github.io/meu-portfolio-react/" },
+        { label: "Ver repositório no GitHub", url: "https://github.com/mariagomessilvatsi-afk/meu-portfolio-react" }
+    ]
   }
 ];
 
