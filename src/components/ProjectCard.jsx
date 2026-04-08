@@ -1,23 +1,22 @@
-import React from 'react';
+﻿import React from 'react';
 
-function ProjectCard({ titulo, descricao, link, links }) {
+function ProjectCard({ titulo, descricao, links }) {
   return (
     <article className="card-projeto">
-      <h3>{titulo}</h3>
+      <div className="card-projeto-topo">
+        <span className="card-tag">Projeto em destaque</span>
+        <h3>{titulo}</h3>
+      </div>
+
       <p>{descricao}</p>
-      
-      {links ? (
-        links.map((l, index) => (
-          <span key={index}>
-            <a href={l.url} target="_blank" rel="noopener noreferrer">{l.label}</a>
-            {index < links.length - 1 && <br />}
-          </span>
-        ))
-      ) : link ? (
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          Ver no GitHub
-        </a>
-      ) : null}
+
+      <div className="card-links">
+        {links?.map((l) => (
+          <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer">
+            {l.label}
+          </a>
+        ))}
+      </div>
     </article>
   );
 }

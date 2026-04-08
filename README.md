@@ -1,59 +1,60 @@
-# Portfólio | Maria Silva
+﻿# Portfólio | Maria Silva
 
-Bem-vindo(a) ao meu portfólio. Este projeto foi desenvolvido para apresentar minha trajetória, habilidades e projetos enquanto faço minha transição de carreira para a área de tecnologia.
+Bem-vindo(a) ao meu portfólio. Este projeto foi desenvolvido para apresentar minha trajetória, habilidades e projetos durante minha transição de carreira para a área de tecnologia.
 
 ## Sobre
 
-Atualmente trabalho como operadora de sistemas do SUS e estou cursando o tecnólogo em Sistemas para Internet na UESPI, com o objetivo de migrar para a área de tecnologia. Sou dedicada, curiosa e apaixonada por aprender coisas novas.
+Atualmente trabalho como operadora de sistemas do SUS e estou cursando o tecnólogo em Sistemas para Internet na UESPI, com o objetivo de migrar para a área de tecnologia.
 
 ## Funcionalidades
 
 - Layout responsivo e moderno
-- Alternância entre tema claro e escuro
-- Validação de formulário de contato
 - Cards de projetos gerados dinamicamente
 - Estrutura de pastas organizada para fácil manutenção
 
 ## Tecnologias Utilizadas
 
 - HTML5
-- CSS3 (com variáveis e responsividade)
+- CSS3
 - JavaScript (ES6+)
 - React
 - Vite
 
 ## Estrutura de Pastas
 
-```
+```text
 meu-portfolio-react/
-├── assets/
-├── public/
-├── src/
-├── index.html
-└── README.md
+|-- public/
+|-- src/
+|   |-- assets/
+|   |-- components/
+|   |-- App.jsx
+|   |-- index.css
+|   `-- main.jsx
+|-- dist/
+|-- vite.config.js
+`-- README.md
 ```
 
 ## Como rodar o projeto
 
 1. Clone este repositório:
-```
+```bash
 git clone https://github.com/mariagomessilvatsi-afk/meu-portfolio-react.git
 ```
 2. Instale as dependências:
-```
+```bash
 npm install
 ```
 3. Rode o projeto:
-```
+```bash
 npm run dev
 ```
 
-## Deploy
+## Deploy na Vercel
 
-O portfólio está disponível via GitHub Pages em:
-```
-https://mariagomessilvatsi-afk.github.io/meu-portfolio-react/
-```
+- Build command: `npm run build`
+- Output directory: `dist`
 
 ## Contato
 

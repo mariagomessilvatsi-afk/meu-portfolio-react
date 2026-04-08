@@ -1,119 +1,166 @@
-import { useState, useEffect } from 'react';
+﻿import { useState } from 'react';
 import Header from './components/Header';
 import ProjectsSection from './components/ProjectsSection';
-import './index.css'; 
+import './index.css';
 
 const meusProjetos = [
-  { 
-    id: 1, 
-    titulo: "Projeto 01 - Portfólio em HTML, CSS e JS", 
-    descricao: "Meu portfólio de apresentação feito com tecnologias modernas.", 
+  {
+    id: 1,
+    titulo: 'Projeto 01 - Portfólio em HTML, CSS e JS',
+    descricao: 'Meu portfólio de apresentação feito com tecnologias modernas.',
     links: [
-        { label: "Ver no GitHub Pages", url: "https://mariagomessilvatsi-afk.github.io/portfolio-uespi-html-css-js/" },
-        { label: "Ver repositório no GitHub", url: "https://github.com/mariagomessilvatsi-afk/portfolio-uespi-html-css-js" }
-    ]
+      { label: 'Ver no GitHub Pages', url: 'https://mariagomessilvatsi-afk.github.io/portfolio-uespi-html-css-js/' },
+      { label: 'Ver repositório no GitHub', url: 'https://github.com/mariagomessilvatsi-afk/portfolio-uespi-html-css-js' },
+    ],
   },
-  { 
-    id: 2, 
-    titulo: "Projeto 02 - Portfólio com React", 
-    descricao: "Meu portfólio de apresentação feito com React, uma biblioteca JavaScript para construção de interfaces de usuário.", 
+  {
+    id: 2,
+    titulo: 'Projeto 02 - Portfólio com React',
+    descricao: 'Meu portfólio de apresentação feito com React, uma biblioteca JavaScript para construção de interfaces de usuário.',
     links: [
-        { label: "Ver no GitHub Pages", url: "https://mariagomessilvatsi-afk.github.io/meu-portfolio-react/" },
-        { label: "Ver repositório no GitHub", url: "https://github.com/mariagomessilvatsi-afk/meu-portfolio-react" }
-    ]
-  }
+      { label: 'Ver no GitHub Pages', url: 'https://mariagomessilvatsi-afk.github.io/meu-portfolio-react/' },
+      { label: 'Ver repositório no GitHub', url: 'https://github.com/mariagomessilvatsi-afk/meu-portfolio-react' },
+    ],
+  },
+];
+
+const destaques = ['Transição de carreira', 'React e JavaScript', 'Interfaces responsivas'];
+
+const habilidades = ['React', 'JavaScript', 'HTML', 'CSS', 'Vite', 'UI Responsiva'];
+
+const contatos = [
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/' },
+  { label: 'GitHub', url: 'https://github.com/' },
+  { label: 'Instagram', url: 'https://www.instagram.com/' },
+  { label: 'E-mail', url: 'mailto:contato@email.com' },
 ];
 
 function App() {
-  const [temaEscuro, setTemaEscuro] = useState(false);
-  const alternarTema = () => setTemaEscuro(!temaEscuro);
-
-  useEffect(() => {
-    if (temaEscuro) {
-      document.body.classList.add('dark-theme');
-    } else {
-      document.body.classList.remove('dark-theme');
-    }
-  }, [temaEscuro]);
-
   const [formData, setFormData] = useState({ nome: '', email: '', msg: '' });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.nome || !formData.email) {
-      alert("Preencha os campos obrigatórios!");
+      alert('Preencha os campos obrigatórios!');
     } else {
       alert(`Obrigado, ${formData.nome}! Mensagem enviada.`);
-      setFormData({ nome: '', email: '', msg: '' }); 
+      setFormData({ nome: '', email: '', msg: '' });
     }
   };
 
   return (
-    <div style={{ minHeight: '100vh' }}>
-      <Header temaEscuro={temaEscuro} onAlternarTema={alternarTema} />
+    <div className="page-shell">
+      <Header />
 
       <main>
-        
-        <section id="sobre">
-            <div className="sobre-container">
-                <div className="sobre-foto">
-                    <img src="https://randomuser.me/api/portraits/lego/1.jpg" alt="Foto de perfil genérica" />
+        <section id="sobre" className="hero-shell">
+          <div className="hero-grid">
+            <aside className="hero-panel">
+              <div className="sobre-foto">
+                <img src="/Perfil.jpeg" alt="Foto de perfil de Maria Silva" />
+              </div>
+
+              <div className="info-card">
+                <span className="section-kicker">Sobre mim</span>
+                <h3>Maria Silva</h3>
+                <p>
+                  Estudante de Sistemas para Internet, com foco em desenvolvimento front-end e na
+                  criação de interfaces organizadas, acessíveis e modernas.
+                </p>
+
+                <div className="skills-cloud">
+                  {habilidades.map((habilidade) => (
+                    <span key={habilidade}>{habilidade}</span>
+                  ))}
                 </div>
-                <div className="sobre-texto">
-                    <h2>Sobre Mim</h2>
-                    <p>Atualmente trabalho como operadora de sistemas do SUS e estou cursando o tecnólogo em Sistemas para Internet na UESPI, visando uma migração de carreira para a área de tecnologia. Sou dedicada, curiosa e estou sempre em busca de novos aprendizados para crescer profissionalmente no universo da tecnologia.</p>
-                </div>
+              </div>
+            </aside>
+
+            <div className="hero-copy">
+              <span className="hero-kicker">Portfólio pessoal</span>
+              <h2>Construindo minha trajetória em tecnologia com consistência, estudo e prática.</h2>
+              <p className="hero-intro">
+                Atualmente trabalho como operadora de sistemas do SUS e estou cursando o tecnólogo em
+                Sistemas para Internet na UESPI, visando uma migração de carreira para a área de
+                tecnologia. Sou dedicada, curiosa e estou sempre em busca de novos aprendizados para
+                crescer profissionalmente no universo da tecnologia.
+              </p>
+
+              <div className="hero-chips">
+                {destaques.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+
+              <div className="hero-actions">
+                <a className="btn-primary" href="#projetos">Ver projetos</a>
+                <a className="btn-secondary" href="#contato">Entrar em contato</a>
+              </div>
             </div>
+          </div>
         </section>
 
         <ProjectsSection projetos={meusProjetos} />
-        
-        <section id="contato">
-          <h2>Contato</h2>
+
+        <section id="contato" className="section-shell section-contato">
+          <div className="section-heading">
+            <span className="section-kicker">Contato</span>
+            <h2>Vamos conversar sobre oportunidades e próximos passos</h2>
+            <p>
+              Se você quiser trocar ideias, conhecer meu trabalho ou abrir uma conversa profissional,
+              eu fico feliz em receber sua mensagem.
+            </p>
+          </div>
+
           <div className="contato-container">
             <form onSubmit={handleSubmit}>
               <div className="campo">
-                <label htmlFor="nome">Nome:</label>
-                <input 
-                  id="nome" 
-                  type="text" 
+                <label htmlFor="nome">Nome</label>
+                <input
+                  id="nome"
+                  type="text"
                   required
                   value={formData.nome}
-                  onChange={(e) => setFormData({...formData, nome: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                 />
               </div>
               <div className="campo">
-                <label htmlFor="email">E-mail:</label>
-                <input 
-                  id="email" 
-                  type="email" 
+                <label htmlFor="email">E-mail</label>
+                <input
+                  id="email"
+                  type="email"
                   required
                   value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </div>
               <div className="campo">
-                <label htmlFor="msg">Mensagem:</label>
-                <textarea 
-                  id="msg" 
+                <label htmlFor="msg">Mensagem</label>
+                <textarea
+                  id="msg"
                   value={formData.msg}
-                  onChange={(e) => setFormData({...formData, msg: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, msg: e.target.value })}
                 />
               </div>
-              <button type="submit">Enviar Mensagem</button>
+              <button type="submit">Enviar mensagem</button>
             </form>
 
             <aside className="contato-social">
-              <h3>Redes Sociais</h3>
+              <span className="section-kicker">Redes</span>
+              <h3>Canais para acompanhar meu trabalho</h3>
+              <p>
+                Você também pode me encontrar nas redes e acompanhar meus estudos, projetos e evolução.
+              </p>
               <ul>
-                <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="mailto:contato@email.com">contato@email.com</a></li>
+                {contatos.map((contato) => (
+                  <li key={contato.label}>
+                    <a href={contato.url} target="_blank" rel="noopener noreferrer">{contato.label}</a>
+                  </li>
+                ))}
               </ul>
             </aside>
           </div>
         </section>
-
       </main>
 
       <footer>
